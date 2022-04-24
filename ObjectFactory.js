@@ -13,7 +13,7 @@ function CreateObject(BaseType) {
 			isType = "Objekt, Person";
 			break;
 		default:
-			message(Type + " is not defined!")
+			message(BaseType + " is not defined!")
 			exit();
 			break;
 	}
