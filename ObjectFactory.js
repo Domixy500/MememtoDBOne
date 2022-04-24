@@ -30,13 +30,13 @@ function CreateObject(BaseType) {
 function DoPostCreation(obj, BaseType) {
 	switch (BaseType) {
 		case "Aktivität":
-			obj.set("Datum", moment());
+			obj.set("Datum", moment().toDate());
 			break;
 		case "Messung-Körpermasse":
 			DoPostCreation(obj, "Aktivität");
 			break;
 		default:
-			message("No action defined for '" + Type + "'!")
+			message("No action defined for '" + BaseType + "'!")
 			break;
 	}
 }
