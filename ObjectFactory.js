@@ -3,8 +3,17 @@ function CreateObject(BaseType) {
 	var ObjectLibrary = libByName("Objekt");
 	var obj = new Object();
 	switch (BaseType) {
+		case "Aktivität":
+			isType = "Objekt, Aktivität";
+			break;
 		case "Gegenstand":
 			isType = "Objekt, Gegenstand";
+			break;
+		case "Golfspielen":
+			isType = "Objekt, Aktivität, Laufen, Golfspielen";
+			break;
+		case "Laufen":
+			isType = "Objekt, Aktivität, Laufen";
 			break;
 		case "Messung-Körpermasse":
 			isType = "Objekt, Aktivität, Messung-Körpermasse";
@@ -31,6 +40,14 @@ function DoPostCreation(obj, BaseType) {
 	switch (BaseType) {
 		case "Aktivität":
 			obj.set("Datum", moment().toDate());
+			obj.set("isActive", true);
+			break;
+		case "Golfspielen":
+			obj.set("Lauf-Typ", "Golf");
+			DoPostCreation(obj, "Laufen");
+			break;
+		case "Laufen":
+			DoPostCreation(obj, "Aktivität");
 			break;
 		case "Messung-Körpermasse":
 			DoPostCreation(obj, "Aktivität");
