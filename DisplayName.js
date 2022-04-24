@@ -5,7 +5,7 @@ switch (BaseType) {
 		DisplayName = formatDate(field("Datum"));
 		break;
 	case 'Friseur-Besuch':
-		DisplayName = field("Friseur")[0] + "   " + formatDate(field("Datum"));
+		DisplayName = formatDate(field("Datum"))  + " bei " + field("Friseur")[0].field("Anzeigename");
 		break;
 	case 'Golfspielen':
 		DisplayName = field("Streckenlänge") + " km   " + formatDate(field("Datum"));
@@ -32,4 +32,4 @@ switch (BaseType) {
 		DisplayName = field("Name");
 		break;
 }
-DisplayName = DisplayName + " [" + field("Id") + "]";
+DisplayName = DisplayName + "   [" + field("Id") + "]";
