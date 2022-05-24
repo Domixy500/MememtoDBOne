@@ -6,6 +6,10 @@ function CreateObject(BaseType) {
 		case "Aktivität":
 			isType = "Objekt, Aktivität";
 			break;
+                case "Arbeitsweg-Fahrrad":
+                        BaseType = "Radfahren";
+			isType = "Objekt, Aktivität, Radfahren";
+			break;
 		case "Gegenstand":
 			isType = "Objekt, Gegenstand";
 			break;
@@ -50,6 +54,9 @@ function DoPostCreation(obj, BaseType) {
 			DoPostCreation(obj, "Aktivität");
 			break;
 		case "Messung-Körpermasse":
+			DoPostCreation(obj, "Aktivität");
+			break;
+		case "Radfahren":
 			DoPostCreation(obj, "Aktivität");
 			break;
 		default:
